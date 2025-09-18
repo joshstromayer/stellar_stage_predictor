@@ -33,22 +33,22 @@
         <div class="form_pred">
             <form id="pred_form">
                 <div class="question">
-                    <label for="">Here is an example question?</label>
-                    <input type="text">
+                    <label for="">Mass (M)</label>
+                    <input type="text" id="mass_input">
                 </div>
                 <div class="question">
-                    <label for="">Here is an example question?</label>
-                    <input type="text">
+                    <label for="">Radius (R)</label>
+                    <input type="text" id="radius_input">
                 </div>
                 <div class="question">
-                    <label for="">Here is an example question?</label>
-                    <input type="text">
+                    <label for="">Temperature (K)</label>
+                    <input type="text" id="temperature_input">
                 </div>
                 <div class="question">
-                    <label for="">Here is an example question?</label>
-                    <input type="text">
+                    <label for="">Absolute Magnitude</label>
+                    <input type="text" id="gmag_input">
                 </div>
-                <button onclick="predict_stellar_stage()">Submit</button>
+                <button type="form" id="submit_id">Submit</button>
             </form>
             <div id="results">
                 <p>Stellar Stage Classification: </p>
@@ -57,7 +57,8 @@
         </div>
 
 
-        <canvas class="canvas" id="myCanva" width="400" height="400"></canvas>
+        <canvas class="canvas" id="myCanvas" width="400" height="400"></canvas>
+        <canvas class="canvas" id="myCanvas01" width="400" height="400"></canvas>
 
         <hr>
         

@@ -98,16 +98,189 @@ class StarCLassifiction {
 
     }
 
-    draw () {
+    calculate_canvas_scale () {
+        this.canvas_scale = this.radius/3
+    }
+
+    calculate_star_canvas_size () {
+        if (this.radius_q >= 1) {
+            this.canvas_star_radius = 150
+        } else {
+            this.canvas_star_radius = 150 - (1-this.radius_q)*100
+        }
+        return this.canvas_star_radius
+    }
+
+    calculate_sun_canvas_size () {
+        if (this.radius_q >= 1) {
+            this.canvas_sun_radius = 150 - (this.radius_q-1)*10
+        } else {
+            this.canvas_sun_radius = 150
+        }
+        return this.canvas_sun_radius     
+    }
+
+    calculate_scale_line (radius) {
+        return 200+radius
+    }
+
+    canvas_text_placement () {
+        return 200+(200-this.calculate_scale_line())*0.5-10
+    }
+
+    draw (star_radius) {
         const canvas = document.getElementById("myCanvas")
         const ctx = canvas.getContext("2d")
-
         this.stellar_classification()
 
+        ctx.clearRect(0, 0, 400, 400)
+
+        // Star
+        ctx.beginPath()
+        ctx.fillStyle = this.canvas_star_colour
+        ctx.arc(200, 200, star_radius, 0, 2*Math.PI*this.radius**2)
+        ctx.fill()
+        ctx.stroke()
+
+        if (this.radius_q<1) {
+            // Lines for scale
+            ctx.strokeStyle = "white"
+            ctx.beginPath()
+            ctx.moveTo(200, 380)
+            ctx.lineTo(this.calculate_scale_line(star_radius), 380)
+            ctx.stroke()
+    
+            // Lines for arrows
+            ctx.beginPath()
+            ctx.moveTo(200, 380)
+            ctx.lineTo(205, 385)
+            ctx.stroke()
+    
+            ctx.beginPath()
+            ctx.moveTo(200, 380)
+            ctx.lineTo(205, 375)
+            ctx.stroke()
+    
+            ctx.beginPath()
+            ctx.moveTo(this.calculate_scale_line(star_radius), 380)
+            ctx.lineTo(this.calculate_scale_line(star_radius)-5, 385)
+            ctx.stroke()
+    
+            ctx.beginPath()
+            ctx.moveTo(this.calculate_scale_line(star_radius), 380)
+            ctx.lineTo(this.calculate_scale_line(star_radius)-5, 375)
+            ctx.stroke()
+
+            ctx.beginPath()
+            ctx.fillText("24m", 245, 370)
+        }
+
+        ctx.fillStyle = "white"
+        ctx.font = "30px Garamond"
+        ctx.fillText("Your Star", 146, 40)
+
+    }
+
+    draw_sun (sun_radius) {
+        const canvas = document.getElementById("myCanvas01")
+        const ctx01 = canvas.getContext("2d")
+        this.stellar_classification()
+
+        ctx01.clearRect(0, 0, 400, 400)
+
+        // Star
+        ctx01.beginPath()
+        ctx01.fillStyle = "yellow"
+        ctx01.arc(200, 200, sun_radius, 0, 2*Math.PI*this.radius**2)
+        ctx01.fill()
+        ctx01.stroke()
+
+        ctx01.fillStyle = "white"
+        ctx01.font = "30px Garamond"
+        ctx01.fillText("The Sun", 150, 40)
+
+        if (this.radius_q>1) {
+            // Lines for scale
+            ctx01.strokeStyle = "white"
+            ctx01.beginPath()
+            ctx01.moveTo(200, 380)
+            ctx01.lineTo(this.calculate_scale_line(sun_radius), 380)
+            ctx01.stroke()
+    
+            // Lines for arrows
+            ctx01.beginPath()
+            ctx01.moveTo(200, 380)
+            ctx01.lineTo(205, 385)
+            ctx01.stroke()
+    
+            ctx01.beginPath()
+            ctx01.moveTo(200, 380)
+            ctx01.lineTo(205, 375)
+            ctx01.stroke()
+    
+            ctx01.beginPath()
+            ctx01.moveTo(this.calculate_scale_line(sun_radius), 380)
+            ctx01.lineTo(this.calculate_scale_line(sun_radius)-5, 385)
+            ctx01.stroke()
+    
+            ctx01.beginPath()
+            ctx01.moveTo(this.calculate_scale_line(sun_radius), 380)
+            ctx01.lineTo(this.calculate_scale_line(sun_radius)-5, 375)
+            ctx01.stroke()
+        }
     }
 }
 
-const model = new StarCLassifiction(13, 14, 20000, -4)
+const draw_sun_template = () => {
+    const canvas = document.getElementById("myCanvas01")
+    const ctx01 = canvas.getContext("2d")
 
-lum_class = model.luminosity_classification()
-console.log("Classification: ", lum_class);
+    // Star
+    ctx01.beginPath()
+    ctx01.fillStyle = "yellow"
+    ctx01.arc(200, 200, 100, 0, 2*Math.PI*100)
+    ctx01.fill()
+    ctx01.stroke()
+
+    ctx01.fillStyle = "white"
+    ctx01.font = "30px Garamond"
+    ctx01.fillText("The Sun", 150, 40)
+}
+
+const canvas_star = document.getElementById("myCanvas01")
+if (canvas_star) {
+    draw_sun_template()
+}
+
+document.getElementById("submit_id").addEventListener("click", function(event) {
+    event.preventDefault()
+
+    const mass = parseFloat(document.getElementById("mass_input"))
+    const radius = parseFloat(document.getElementById("radius_input"))
+    const temperature = parseFloat(document.getElementById("temperature_input"))
+    const gmag = parseFloat(document.getElementById("gmag_input"))
+
+    const model = new StarCLassifiction(13, 12, 15600, -4)
+    // const model = new StarCLassifiction(mass, radius, temperature, gmag)
+
+    spectral_class = model.stellar_classification()
+    lum_class = model.luminosity_classification()
+
+    if (lum_class != "N/A") {
+        document.getElementById("results").innerHTML = `
+        <p>Stellar Stage Class: ${spectral_class + lum_class}</p>
+        `
+    } else {
+        document.getElementById("results").innerHTML = `
+        <p>Stellar Stage Class: ${spectral_class}</p>
+        <p>Luminosity Classification is ${spectral_class} since inputted data doesn't work with rela star data stuff.</p>
+        `
+    }
+
+    const sun_radius = model.calculate_sun_canvas_size()
+    const star_radius = model.calculate_star_canvas_size()
+
+    model.draw(star_radius)
+    model.draw_sun(sun_radius)
+
+});
