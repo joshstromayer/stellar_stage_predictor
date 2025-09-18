@@ -31,7 +31,6 @@ class StarCLassifiction {
     stellar_classification () {
         let stellar_classification = 'N/A';
         let stellar_classification_nl = 'N/A';
-        let canvas_star_colour;
 
         if (this.temperature >=30000) {
             stellar_classification = 'O'
