@@ -39,6 +39,7 @@ p {
 
 #pred_form {
     width: 50%;
+    margin-bottom: 30px;
 }
 
 #results {
@@ -50,7 +51,29 @@ p {
     padding: 20px;
 }
 
+.canvases {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
 
 .canvas {
     background-color: rgb(6, 4, 44);
+}
+
+.classify_star_section {
+    display: flex;
+    flex-direction: row;
+}
+
+.stars_info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.specral_star_info p {
+    font-weight: bold;
 }

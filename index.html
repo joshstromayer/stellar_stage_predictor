@@ -15,50 +15,279 @@
         <hr>
 
         <div class="info">
-            <h3>What are Stellar Bodies?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <h4>Categorised into: </h4>
-            <p>a: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>b: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>c: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>d: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>e: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>f: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>idk what to call this, something about the data in the form</h3>
+                <h4>Mass</h4>
+                    <p>The mass of a Star can be measured in kilograms (kg), or it can be measured in Solar Masses (M). 1 Solar Mass is equal to the mass of our Sun, 1.98 x 10<sup>30</sup>kg. Since stars are most commonly found in the range 0.1M to 1.0M, the unit chosen for mass in the form was the Solar Mass.
+                    </p>
+                <h4>Radius</h4>
+                    <p>The radius of a star can vary from 0.1R to 2000R, where R is the radius of our Sun, 6.957x10 <sup>8</sup>m. The most common values lie within 0.1R - 1R, which are main sequence stars, the most common star in the universe. The form below takes radius as a multiple of R.</p>
+
+                <h4>Temperature</h4>
+                        <p>Temperatures of active stars can be as low as 2400k (M-Type), or as high as 50,000+K (O-Type). The form below takes temperature in Kelvin.</p>
+        
+                <h4>Absolute Magnitude</h4>
+                    <p>The <b>absolute magnitude</b> of a star is how bright the star would look if an observer were 10 parsecs (about 32.6 light years) away.
+                        The <b>apparent magnitude</b> of a star depends on the intrinsic brightness and distance, it is a measure of how bright a star looks from Earth - not a good parameter for comparison. 
+                        Absolute magnitude can be as low as -8, and as high as 15. The form below takes the value as it is. If the absolute magnitude is unknown, there is a separate <a href="#gmag_calc">calculator</a> available for assistance.</p>
         </div>
 
         <br>
         <hr>
+        <div class="classify_star_section">
+            <div class="content">
+                <h3>Classify your Star</h3>
+                <div class="form_pred">
+                    <form id="pred_form">
+                        <div class="question">
+                            <label for="">Mass (M)</label>
+                            <input type="number" id="mass_input">
+                        </div>
+                        <div class="question">
+                            <label for="">Radius (R)</label>
+                            <input type="number" id="radius_input">
+                        </div>
+                        <div class="question">
+                            <label for="">Temperature (K)</label>
+                            <input type="number" id="temperature_input">
+                        </div>
+                        <div class="question">
+                            <label for="">Absolute Magnitude</label>
+                            <input type="number" id="gmag_input">
+                        </div>
+                        <button type="submit" id="submit_id">Submit</button>
+                    </form>
+                    <div id="results">
+                        <p>Stellar Stage Classification: </p>
+                        <p>What this means, click <a href="#">here</a> to read.</p>
+                    </div>
+                </div>
 
-        <h3>Classify your Star</h3>
-        <div class="form_pred">
-            <form id="pred_form">
-                <div class="question">
-                    <label for="">Mass (M)</label>
-                    <input type="number" id="mass_input">
+                <div class="canvases">
+                    <canvas class="canvas" id="myCanvas" width="400" height="400"></canvas>
+                    <canvas class="canvas" id="myCanvas01" width="400" height="400"></canvas>
                 </div>
-                <div class="question">
-                    <label for="">Radius (R)</label>
-                    <input type="number" id="radius_input">
+
+            </div>
+
+            <div class="stars_info">
+                <div class="specral_star_info">
+                    <p>O-Type</p>
+                    <span>Temperature: 25,000K+</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>16-60M</td>
+                            <td>6-15R</td>
+                            <td>-4.5 to -5.5</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>30-70M</td>
+                            <td>15-25R</td>
+                            <td>-5.5 to -7</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>40-100M+</td>
+                            <td>25-60R</td>
+                            <td>-7 to -8.5</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="question">
-                    <label for="">Temperature (K)</label>
-                    <input type="number" id="temperature_input">
+
+                <div class="specral_star_info">
+                    <p>B-Type</p>
+                    <span>Temperature: 11,000-25,000K</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>2-16M</td>
+                            <td>3-7R</td>
+                            <td>-1 to -3</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>5-18M</td>
+                            <td>10-20R</td>
+                            <td>-3 to -5</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>15-25M</td>
+                            <td>25-50R</td>
+                            <td>-5 to -7</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="question">
-                    <label for="">Absolute Magnitude</label>
-                    <input type="number" id="gmag_input">
+
+                <div class="specral_star_info">
+                    <p>A-Type</p>
+                    <span>Temperature: 7500-11,000K</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>1.6-3M</td>
+                            <td>1.4-2.5R</td>
+                            <td>1 to 0</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>2-4M</td>
+                            <td>5-10R</td>
+                            <td>-1 to -3</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>5-10M</td>
+                            <td>20-30R</td>
+                            <td>-4 to -5.5</td>
+                        </tr>
+                    </table>
                 </div>
-                <button type="submit" id="submit_id">Submit</button>
-            </form>
-            <div id="results">
-                <p>Stellar Stage Classification: </p>
-                <p>What this means, click <a href="#">here</a> to read.</p>
+
+                <div class="specral_star_info">
+                    <p>F-Type</p>
+                    <span>Temperature: 6000-7500K</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>1-1.§6M</td>
+                            <td>1-1.5R</td>
+                            <td>2 to 3.5</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>1.2-2.5M</td>
+                            <td>3-5R</td>
+                            <td>0 to -1.5</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>4-6M</td>
+                            <td>15-25R</td>
+                            <td>-4 to -5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specral_star_info">
+                    <p>G-Type</p>
+                    <span>Temperature: 5200 - 6000K</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>0.1-1.1M</td>
+                            <td>0.9-1.1R</td>
+                            <td>4 to 5</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>1-3M</td>
+                            <td>5-10R</td>
+                            <td>0 to -1</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>5-10M</td>
+                            <td>20-100R</td>
+                            <td>-3 to -5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specral_star_info">
+                    <p>K-Type</p>
+                    <span>Temperature: 3700 - 5200K</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>0.6-0.9M</td>
+                            <td>0.7-0.9R</td>
+                            <td>5 to 7</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>1-2M</td>
+                            <td>10-20R</td>
+                            <td>0 to -1</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>8-15M</td>
+                            <td>50-150R</td>
+                            <td>-3 to -5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specral_star_info">
+                    <p>M-Type</p>
+                    <span>Temperature: 2400 - 3700K</span>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>M</th>
+                            <th>R</th>
+                            <th>AM</th>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">V</td>
+                            <td>0.08-0.6M</td>
+                            <td>0.1-0.7R</td>
+                            <td>8 to 15</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">III</td>
+                            <td>0.8-3M</td>
+                            <td>20-100R</td>
+                            <td>-0.5to-9</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">I</td>
+                            <td>15-25M</td>
+                            <td>200-1000R+</td>
+                            <td>-5 to -9</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
-
-
-        <canvas class="canvas" id="myCanvas" width="400" height="400"></canvas>
-        <canvas class="canvas" id="myCanvas01" width="400" height="400"></canvas>
 
         <hr>
         
