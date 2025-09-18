@@ -16,7 +16,7 @@ const ranges = {
     },
 }
 
-class StarCLassifiction {
+class StarClassifiction {
     constructor(mass, radius, temperature, gmag) {
         this.r = 6.957*10**8
         this.mass = mass
@@ -43,16 +43,16 @@ class StarCLassifiction {
             this.canvas_star_colour = "#c3edff"
         } else if (this.temperature > 7500) {
             stellar_classification = 'A'
-            this.canvas_star_colour = "#fdff9a"
+            this.canvas_star_colour = "#fce788"
         } else if (this.temperature > 6000) {
             stellar_classification = 'F'
-            this.canvas_star_colour = "#f4ff21"
+            this.canvas_star_colour = "#fcc63c"
         } else if (this.temperature > 5200) {
             stellar_classification = 'G'
-            this.canvas_star_colour = "#ffcd4e"
+            this.canvas_star_colour = "#e68517"
         } else if (this.temperature > 3700) {
             stellar_classification = 'K'
-            this.canvas_star_colour = "#e68517"
+            this.canvas_star_colour = "#e07442"
         } else if (this.temperature > 3000) {
             stellar_classification = 'K'
             this.canvas_star_colour = "#ec7a24"
@@ -61,10 +61,13 @@ class StarCLassifiction {
             this.canvas_star_colour = "#cf2d2d"
         } else if (this.temperature > 1300) {
             stellar_classification_nl = 'L'
+            this.canvas_star_colour = "#9c3b06"
         } else if (this.temperature > 700) {
             stellar_classification_nl = 'T'
+            this.canvas_star_colour = "#4b1a04"
         } else {
             stellar_classification_nl = 'Y'
+            this.canvas_star_colour = "#1c0a02"
         }
         
         if (stellar_classification != 'N/A') {
@@ -231,6 +234,15 @@ class StarCLassifiction {
     }
 }
 
+const draw_star_template = () => {
+    const canvas = document.getElementById("myCanvas")
+    const ctx = canvas.getContext("2d")
+
+    ctx.fillStyle = "white"
+    ctx.font = "30px Garamond"
+    ctx.fillText("Your Star", 146, 40)
+}
+
 const draw_sun_template = () => {
     const canvas = document.getElementById("myCanvas01")
     const ctx01 = canvas.getContext("2d")
@@ -250,18 +262,19 @@ const draw_sun_template = () => {
 const canvas_star = document.getElementById("myCanvas01")
 if (canvas_star) {
     draw_sun_template()
+    draw_star_template()
 }
 
 document.getElementById("submit_id").addEventListener("click", function(event) {
     event.preventDefault()
 
-    const mass = parseFloat(document.getElementById("mass_input"))
-    const radius = parseFloat(document.getElementById("radius_input"))
-    const temperature = parseFloat(document.getElementById("temperature_input"))
-    const gmag = parseFloat(document.getElementById("gmag_input"))
+    const mass = parseFloat(document.getElementById("mass_input").value)
+    const radius = parseFloat(document.getElementById("radius_input").value)
+    const temperature = parseFloat(document.getElementById("temperature_input").value)
+    const gmag = parseFloat(document.getElementById("gmag_input").value)
 
-    const model = new StarCLassifiction(13, 12, 15600, -4)
-    // const model = new StarCLassifiction(mass, radius, temperature, gmag)
+    // const model = new StarCLassifiction(13, 12, 15600, -4)
+    const model = new StarClassifiction(mass, radius, temperature, gmag)
 
     spectral_class = model.stellar_classification()
     lum_class = model.luminosity_classification()
