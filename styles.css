@@ -72,6 +72,15 @@ p {
     gap: 10px;
     padding-left: 10px;
     font-size: 12px;
+    width: 200px;
+}
+
+.specral_star_info {
+    width: 100%;
+}
+
+.specral_star_info table{
+    width: 100%;
 }
 
 .specral_star_info p {
