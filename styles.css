@@ -80,6 +80,21 @@ p {
     margin-top: 30px;
 }
 
+.button_parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#submit_id {
+    background-color: rgb(56, 57, 109);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 .canvases {
     display: flex;
     flex-direction: row;
