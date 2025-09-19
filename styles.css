@@ -59,6 +59,8 @@ p {
 
 .canvas {
     background-color: rgb(6, 4, 44);
+    height: 400px;
+    width: 400px;
 }
 
 .classify_star_section {
@@ -85,4 +87,11 @@ p {
 
 .specral_star_info p {
     font-weight: bold;
+}
+
+@media (max-width:600px) {
+    .canvas {
+        height: 200px;
+        width: 200px;
+    }
 }

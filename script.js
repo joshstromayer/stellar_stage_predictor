@@ -276,34 +276,34 @@ const ctx01 = canvas_sun.getContext("2d")
 
 
 if (canvas_star) {
-    draw_sun_template()
-    draw_star_template()
+    // draw_sun_template()
+    // draw_star_template()
 }
 
-function resizeCanvas () {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx01.setTransform(1, 0, 0, 1, 0, 0);
-
-    if (window.innerWidth < 660) {
-        ctx.scale(0.5, 0.5)
-        ctx01.scale(0.5, 0.5)
-    }
-}
 
 document.getElementById("submit_id").addEventListener("click", function(event) {
     event.preventDefault()
-
+    
     const mass = parseFloat(document.getElementById("mass_input").value)
     const radius = parseFloat(document.getElementById("radius_input").value)
     const temperature = parseFloat(document.getElementById("temperature_input").value)
     const gmag = parseFloat(document.getElementById("gmag_input").value)
-
+    
     const model = new StarClassifiction(13, 9, 15600, -4)
     // const model = new StarClassifiction(mass, radius, temperature, gmag)
+    
+        // ctx.setTransform(1, 0, 0, 1, 0, 0);
+        // ctx01.setTransform(1, 0, 0, 1, 0, 0);
+    
+        // if (window.innerWidth < 660) {
+        //     ctx.scale(0.5, 0.5)
+        //     ctx01.scale(0.5, 0.5)
+        // }
+    
 
     spectral_class = model.stellar_classification()
     lum_class = model.luminosity_classification()
-
+    
     if (lum_class != "N/A") {
         document.getElementById("results").innerHTML = `
         <p>Stellar Stage Class: ${spectral_class + lum_class}</p>
