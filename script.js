@@ -120,6 +120,9 @@ class StarClassifiction {
         } else {
             this.canvas_sun_radius = 150
         }
+        if (this.canvas_sun_radius <= 0){
+            this.canvas_sun_radius = 3
+        }
         return this.canvas_sun_radius     
     }
 
