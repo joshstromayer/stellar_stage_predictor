@@ -269,10 +269,25 @@ const draw_sun_template = () => {
     ctx01.fillText("The Sun", 200, 30)
 }
 
-const canvas_star = document.getElementById("myCanvas01")
+const canvas_star = document.getElementById("myCanvas")
+const ctx = canvas_star.getContext("2d")
+const canvas_sun = document.getElementById("myCanvas01")
+const ctx01 = canvas_sun.getContext("2d")
+
+
 if (canvas_star) {
     draw_sun_template()
     draw_star_template()
+}
+
+function resizeCanvas () {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx01.setTransform(1, 0, 0, 1, 0, 0);
+
+    if (window.innerWidth < 660) {
+        ctx.scale(0.5, 0.5)
+        ctx01.scale(0.5, 0.5)
+    }
 }
 
 document.getElementById("submit_id").addEventListener("click", function(event) {
@@ -307,3 +322,7 @@ document.getElementById("submit_id").addEventListener("click", function(event) {
     model.draw_sun(sun_radius)
 
 });
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas)
