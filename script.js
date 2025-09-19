@@ -164,7 +164,7 @@ class StarClassifiction {
         ctx.fill()
         ctx.stroke()
 
-        if (this.radius_q<1) {
+        if (this.radius_q<1 && window.innerWidth > 600) {
             // Lines for scale
             ctx.strokeStyle = "white"
             ctx.fillStyle = "white"
@@ -204,7 +204,7 @@ class StarClassifiction {
         ctx01.font = "30px Garamond"
         ctx01.fillText("The Sun", 200, 30)
 
-        if (this.radius_q>1) {
+        if (this.radius_q>1 && window.innerWidth > 600) {
             // Lines for scale
             ctx01.strokeStyle = "white"
             ctx01.beginPath()
@@ -276,8 +276,8 @@ const ctx01 = canvas_sun.getContext("2d")
 
 
 if (canvas_star) {
-    // draw_sun_template()
-    // draw_star_template()
+    draw_sun_template()
+    draw_star_template()
 }
 
 
@@ -289,30 +289,10 @@ document.getElementById("submit_id").addEventListener("click", function(event) {
     const temperature = parseFloat(document.getElementById("temperature_input").value)
     const gmag = parseFloat(document.getElementById("gmag_input").value)
     
-    const model = new StarClassifiction(13, 9, 15600, -4)
-    // const model = new StarClassifiction(mass, radius, temperature, gmag)
-    
-        // ctx.setTransform(1, 0, 0, 1, 0, 0);
-        // ctx01.setTransform(1, 0, 0, 1, 0, 0);
-    
-        // if (window.innerWidth < 660) {
-        //     ctx.scale(0.5, 0.5)
-        //     ctx01.scale(0.5, 0.5)
-        // }
-    
-
-    spectral_class = model.stellar_classification()
-    lum_class = model.luminosity_classification()
-    
-    if (lum_class != "N/A") {
-        document.getElementById("results").innerHTML = `
-        <p>Stellar Stage Class: ${spectral_class + lum_class}</p>
-        `
-    } else {
-        document.getElementById("results").innerHTML = `
-        <p>Stellar Stage Class: ${spectral_class}</p>
-        <p>Luminosity Classification is ${spectral_class} since inputted data doesn't work with rela star data stuff.</p>
-        `
+    // const model = new StarClassifiction(13, 9, 15600, -4)
+    let model;
+    if (mass, radius) {
+        model = new StarClassifiction(mass, radius, temperature, gmag)
     }
 
     const sun_radius = model.calculate_sun_canvas_size()
@@ -323,6 +303,6 @@ document.getElementById("submit_id").addEventListener("click", function(event) {
 
 });
 
-resizeCanvas();
+// resizeCanvas();
 
-window.addEventListener("resize", resizeCanvas)
+// window.addEventListener("resize", resizeCanvas)

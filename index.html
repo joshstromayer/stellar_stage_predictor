@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellar Stage Prediction</title>
+    <title>Star Classifier</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="pngtree-star-space-outer-png-image_11545101.png">
 </head>
 <body>
     <header>
-        <p class="header_p">Stellar Stage Predictor</p>
+        <p class="header_p">Star Classifier</p>
     </header>
     <main>
-        <h2>Welcome</h2>
-        <hr>
 
         <div class="info">
-            <h3>idk what to call this, something about the data in the form</h3>
+            <h3>The Infomation used to Identify your Star:</h3>
                 <h4>Mass</h4>
-                    <p>The mass of a Star can be measured in kilograms (kg), or it can be measured in Solar Masses (M). 1 Solar Mass is equal to the mass of our Sun, 1.98 x 10<sup>30</sup>kg. Since stars are most commonly found in the range 0.1M to 1.0M, the unit chosen for mass in the form was the Solar Mass.
+                    <p>The mass of a Star can be measured in kilograms (kg), or it can be measured in Solar Masses (M). 1 Solar Mass is equal to the mass of the Sun, 1.98 x 10<sup>30</sup>kg.
+                    <br><br>
+                    Values for mass M can range from 0.08M to 60M, anything outside that range would be difficult to classify as a star.
                     </p>
                 <h4>Radius</h4>
-                    <p>The radius of a star can vary from 0.1R to 2000R, where R is the radius of our Sun, 6.957x10 <sup>8</sup>m. The most common values lie within 0.1R - 1R, which are main sequence stars, the most common star in the universe. The form below takes radius as a multiple of R.</p>
+                    <p>The radius of a circle or sphere is usually measured in metres, but due to the large values of radii measured in stars, astronomers use R (the radius of the Sun) as a unit. The radius of our Sun (R) is 6.957x10 <sup>8</sup>m.
+                    <br>Values typically range from 0.1R to 100R, sometimes up to 2000R. 
+                    </p>
 
                 <h4>Temperature</h4>
-                        <p>Temperatures of active stars can be as low as 2400k (M-Type), or as high as 50,000+K (O-Type). The form below takes temperature in Kelvin.</p>
+                        <p>Temperatures of active stars can be as low as 2400k (M-Type), or as high as 50,000K+ (O-Type).
+                            <br><br>Some Stars may have temperatures below 2400K, but they would not be considered as active, temperatures are not high enough for nuclear fusion to take place.
+                        </p>
         
                 <h4>Absolute Magnitude</h4>
                     <p>The <b>absolute magnitude</b> of a star is how bright the star would look if an observer were 10 parsecs (about 32.6 light years) away.
-                        The <b>apparent magnitude</b> of a star depends on the intrinsic brightness and distance, it is a measure of how bright a star looks from Earth - not a good parameter for comparison. 
-                        Absolute magnitude can be as low as -8, and as high as 15. The form below takes the value as it is. If the absolute magnitude is unknown, there is a separate <a href="#gmag_calc">calculator</a> available for assistance.</p>
+                        <br><br>
+                        The <b>apparent magnitude</b> of a star depends on the intrinsic brightness and distance, it is a measure of how bright a star looks from Earth - not a good value for comparison with other stars. 
+                        <br><br>
+                        Absolute magnitude (M) can be calculated if the apparent magnitude (m) and distance (d) (in parsecs) are known. The formula is: M = m - 5 log<sub>10</sub>(d/10).
+                        <br><br>
+                        The values of absolute magnitude can range from -8 to +15. </p>
         </div>
 
         <br>
@@ -56,9 +65,11 @@
                         </div>
                         <button type="submit" id="submit_id">Submit</button>
                     </form>
-                    <div id="results">
-                        <p>Stellar Stage Classification: </p>
-                        <p>What this means, click <a href="#">here</a> to read.</p>
+                    <div id="input_data_info">
+                        <p>Mass: Measured in Solar Masses (M). <br>1.998x10<sup>30</sup>kg = 1M</p>
+                        <p id="radius_p">Radius: Measured in Solar Radius (R). <br>6.957x10<sup>8</sup>m = 1R</p>
+                        <p id="temperature_p">Temperature: Measured in Kelvin (K).</p>
+                        <p id="absmag_p">Absolute Magnitude: can be calculated using our calculator below. </p>
                     </div>
                 </div>
 
@@ -66,7 +77,7 @@
                     <canvas class="canvas" id="myCanvas" width="400" height="400"></canvas>
                     <canvas class="canvas" id="myCanvas01" width="400" height="400"></canvas>
                 </div>
-
+                <p>(Luminosity Classification may not be displayed if it could not be identified. Follow the guide for parameter ranges)</p>
             </div>
 
             <div class="stars_info">

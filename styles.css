@@ -1,13 +1,15 @@
 body {
-    background-color: rgb(245, 249, 252);
+    background-color: rgb(32, 30, 30);
     margin: 0;
+    color: white;
 }
 
 header {
-    position: sticky;
+    background-color: rgb(32, 30, 30);
+    position: absolute;
+    width: 100%;
     top: 0;
     height: 52px;
-    background-color: white;
 }
 
 .header_p {
@@ -20,6 +22,7 @@ header {
 main {
     width: calc(100%-20);
     padding: 0px 10px 10px 10px;
+    padding-top: 40px;
 }
 
 h1 {
@@ -31,10 +34,15 @@ p {
     width: auto;
 }
 
+.info {
+    padding-top: 0px;
+}
+
 .form_pred {
     display: flex;
     flex-direction: row;
     width: 100%;
+    max-width: 805px;
 }
 
 #pred_form {
@@ -51,6 +59,27 @@ p {
     padding: 20px;
 }
 
+#input_data_info {
+}
+
+#input_data_info p {
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+}
+
+#radius_p {
+    margin-top: 10px;
+}
+
+#temperature_p {
+    margin-top: 15px;
+}
+
+#absmag_p {
+    margin-top: 30px;
+}
+
 .canvases {
     display: flex;
     flex-direction: row;
@@ -58,14 +87,22 @@ p {
 }
 
 .canvas {
-    background-color: rgb(6, 4, 44);
+    background-color: rgb(6, 6, 17);
     height: 400px;
     width: 400px;
+}
+
+.content p {
+    color: rgb(212, 212, 212);
+    font-size: 11px;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .classify_star_section {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .stars_info {
@@ -75,6 +112,8 @@ p {
     padding-left: 10px;
     font-size: 12px;
     width: 200px;
+    right: 0;
+    margin-left: auto;
 }
 
 .specral_star_info {
@@ -89,9 +128,97 @@ p {
     font-weight: bold;
 }
 
+
+@media (max-width:1460px) {
+    .canvases {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .canvases {
+        gap: 5px;
+    }
+}
+
 @media (max-width:600px) {
+    .canvases {
+        gap: 5px;
+    }
     .canvas {
         height: 200px;
         width: 200px;
+    }
+    .form_pred {
+        width: 100%;
+        max-width: 405px;
+    }
+
+    .classify_star_section {
+        flex-direction: column;
+    }
+
+    .stars_info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 0;
+        width: 100%;
+        padding: 0;
+        gap: 0;
+    }
+
+    .specral_star_info {
+        width: 175px;
+    }
+
+    #input_data_info p {
+        margin-top: 30px;
+    }
+
+}
+
+@media (max-width:390px) {
+    .canvases {
+        gap: 5px;
+        width: 100%;
+    }
+    .canvas {
+        height: calc(50% - 2.5px);
+        width: calc(50% - 2.5px);
+    }
+    .form_pred {
+        width: 100%;
+        max-width: 380px;
+    }
+    body {
+        width: calc(100%-10px);
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    main {
+        padding: 5px;
+        padding-top: 50px;
+    }
+
+    .classify_star_section {
+        flex-direction: column;
+    }
+
+    .specral_star_info {
+        max-width: calc(100% - 27.5px);
+        padding: 5px;
+    }
+
+    #radius_p {
+        margin-top: 10px !important;
+    }
+    
+    #temperature_p {
+        margin-top: 0px;
+    }
+    
+    #absmag_p {
+        margin-top: 15px !important;
     }
 }
