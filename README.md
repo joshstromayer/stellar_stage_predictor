@@ -3,11 +3,11 @@ A simple website used to classify a star and provide a illustration based off un
 
 ## Description 
 
-The Stellar Classification System constists of spectral classification and luminosity classification. The Gaia DR3 dataset has spectral classification for 626016 stars, 26016 stars for spectral type 'O' and 100k stars for spectral classes 'B', 'A', 'F', 'G', 'K', 'M'. Spectral classes are primarily influenced by the temperature of the star, whilst the luminosity classes are mostly influced by mass, radius and the absolute magnitude of the star. The luminosity classes tell you the stage of the star in its star cycle, examples include Main Sequence (V) and Giants (III). When combining both the spectral classification and the luminosity classification, the full stellar stage classification is given, i.e. "A III". 
+The Stellar Classification System consists of spectral classification and luminosity classification. The Gaia DR3 dataset has spectral classification for 626016 stars, 26016 stars for spectral type 'O' and 100k stars for spectral classes 'B', 'A', 'F', 'G', 'K', 'M'. Spectral classes are primarily influenced by the temperature of the star, whilst the luminosity classes are mostly influenced by mass, radius and the absolute magnitude of the star. The luminosity classes tell you the stage of the star in its star cycle, examples include Main Sequence (V) and Giants (III). When combining both the spectral classification and the luminosity classification, the full stellar stage classification is given, i.e. "A III". 
 
 ## How to use it 
 
-The interractive webpage is designed to provide a smooth user experience.
+The interactive webpage is designed to provide a smooth user experience.
 You will be asked to enter 4 values: the **Mass**, **Radius**, **Temperature**, and **Absolute Magnitude**. 
 - If your inputs fall within the valid ranges for a luminosity classification, a full classification will be returned. 
 - If the inputs are outside of those ranges, only a spectral classification will be returned. 
@@ -16,9 +16,9 @@ You will be asked to enter 4 values: the **Mass**, **Radius**, **Temperature**, 
 
 The Gaia DR3 dataset was split into sub-datasets based off the spectral classes of the stars. Each dataset was trained using a KMeans model with 3 cluster centres, anticipating the mathematically curated clusters to align with the data ranges of the luminosity classes. A script which ran through the different values for the number of clusters on the different spectral classes showed that training the model to find 3 clusters was optimal. The 3 luminosity classes that were targetted are the Main Sequence (V), Giant (III), and the Supergiant (I) stars.
 
-As explained later on in this file, the unsupervised learning training was unsuccessful. Whilst the clusters created were mathematically accurate, and would allow any new stars to be confidently categorised into one of the clusters, unfortunately, the cluster centres did not align with the luminosity classifications. 
+As explained later on in this file, the unsupervised learning training was unsuccessful. Whilst the clusters created were mathematically accurate, and would allow any new stars to be confidently categorised into one of these clusters, unfortunately, the cluster centres did not align with the luminosity classifications. 
 
-The JavaScript code compares the user inputs with a predefined range of values. First the temperature is used to place the star into its spectral class. Then the mass, radius and absolute magnitude are considered for the luminosity classification. If the data provided by the user does not perfectly fall in the ranges of each feature, no luminosity class will be provided - only the spectral class. This grants the user freedom to produce their own star, with unique values, whilst having to consider the risk of not having it classified. This algorithm is much more efficient than the unsupervised learning clusters for classificaiton, since there is no room for error, no possibility of an incorrect classification. 
+The JavaScript code compares the user inputs with a predefined range of values. First the temperature is used to place the star into its spectral class. Then the mass, radius and absolute magnitude are considered for the luminosity classification. If the data provided by the user does not perfectly fall in the ranges of each feature, no luminosity class will be provided - only the spectral class. This grants the user freedom to produce their own star, with unique values, whilst having to consider the risk of not having it classified. This algorithm is much more efficient than the unsupervised learning clusters for classification, since there is no room for error, no possibility of an incorrect classification. 
 
 ## Why the Unsupervised-Learning models failed
 
@@ -42,8 +42,8 @@ All the Pre-Processing code, plots, model creation and testing are in that one n
 
 ## Contributing 
 
-If you would like to contribute, feel free to 'fork' the repostitory and make all the changes you would like. 
+If you would like to contribute, feel free to 'fork' the reposititory and make all the changes you would like. 
 Here are some ideas for you to get started: 
-- Use a different dataset, to trainand test the model on different data, possibly with different parameters.
+- Use a different dataset, to train and test the model on different data, possibly with different parameters.
 - Change the styling of the website, make it custom to your liking...
 - Adjust the JavaScript code to change the output to the user (numerical output, a graph, etc.).
